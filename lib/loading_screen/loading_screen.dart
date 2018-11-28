@@ -27,14 +27,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       backgroundColor: Colors.indigo,
       body: Center(
-        child: Text(
-          'Chadenn Loading Screen',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 50.0,
-            color: Colors.white,
-          ),
-        ),
+        child: Image.asset('assets/welcome_screen.png'),
       ),
     );
   }

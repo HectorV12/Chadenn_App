@@ -4,9 +4,8 @@ class UserManualPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
-        child: Text('Page 1'),
-      ),
+      alignment: Alignment.topCenter,
+      child: Image.asset('assets/page1.png'),
     );
   }
 }

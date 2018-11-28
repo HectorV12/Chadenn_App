@@ -1,6 +1,7 @@
 import 'package:chadenn/user_manual/user_manual_pages/user_manual_page1.dart';
 import 'package:chadenn/user_manual/user_manual_pages/user_manual_page2.dart';
 import 'package:chadenn/user_manual/user_manual_pages/user_manual_page3.dart';
+import 'package:chadenn/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:page_view_indicators/page_view_indicators.dart';
 
@@ -20,7 +21,7 @@ class UserManualState extends State<UserManual> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.indigo,
+        backgroundColor: chadenn_color,
         child: Icon(
           Icons.settings_overscan,
         ),
@@ -39,14 +40,14 @@ class UserManualState extends State<UserManual> {
             IconButton(
               icon: Icon(
                 Icons.menu,
-                color: Colors.indigo,
+                color: chadenn_color,
               ),
               onPressed: () {},
             ),
             IconButton(
               icon: Icon(
                 Icons.settings,
-                color: Colors.indigo,
+                color: chadenn_color,
               ),
               onPressed: () {},
             ),
@@ -95,8 +96,8 @@ class UserManualState extends State<UserManual> {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: CirclePageIndicator(
-          dotColor: Colors.indigo.shade50,
-          selectedDotColor: Colors.indigo,
+          dotColor: chadenn_color.withOpacity(0.1),
+          selectedDotColor: chadenn_color,
           itemCount: 3,
           currentPageNotifier: _currentPageNotifier,
         ),
