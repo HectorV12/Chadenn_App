@@ -1,70 +1,95 @@
+import 'package:chadenn/scanner_screen/scanner.dart';
+import 'package:chadenn/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ScannerScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      initialIndex: 1,
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            labelColor: Colors.indigo,
-            labelStyle: TextStyle(fontSize: 12.0),
-            indicatorColor: Colors.transparent,
-            tabs: [
-              Tab(
-                icon: Icon(
-                  Icons.flash_off,
-                  color: Colors.indigo,
-                ),
-                text: 'Flash Off',
-              ),
-              Tab(
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.indigo,
-                ),
-                text: 'Scanned Foods',
-              ),
-              Tab(
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.indigo,
-                ),
-                text: 'Manual Search',
-              ),
-            ],
-          ),
-          backgroundColor: Colors.white,
-          title: Text(
-            'Barcode Scanner',
-            style: TextStyle(color: Colors.indigo),
-          ),
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.indigo,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            Icon(Icons.flash_off),
-            Center(
-              child: Text(
-                'Scanner',
-                style: TextStyle(fontSize: 25.0),
+  PreferredSizeWidget _buildBelowAppBar(BuildContext context) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(110.0),
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 15.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width / 3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  FloatingActionButton(
+                    heroTag: 'Flash',
+                    onPressed: () {},
+                    child: Icon(Icons.flash_off),
+                    backgroundColor: chadenn_color,
+                  ),
+                  Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
+                  Text(
+                    'Flash Off',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 12.0),
+                  ),
+                ],
               ),
             ),
-            Icon(Icons.search),
+            Container(
+              width: MediaQuery.of(context).size.width / 3,
+              child: Column(
+                children: <Widget>[
+                  FloatingActionButton(
+                    heroTag: 'Menu',
+                    onPressed: () {},
+                    child: Icon(Icons.menu),
+                    backgroundColor: chadenn_color,
+                  ),
+                  Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
+                  Text(
+                    'Scanned Foods',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 12.0),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width / 3,
+              child: Column(
+                children: <Widget>[
+                  FloatingActionButton(
+                    heroTag: 'Search',
+                    onPressed: () {},
+                    child: Icon(Icons.search),
+                    backgroundColor: chadenn_color,
+                  ),
+                  Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
+                  Text(
+                    'Manual Search',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 12.0),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        bottom: _buildBelowAppBar(context),
+        title: Text(
+          'Barcode Scanner',
+          style: TextStyle(
+              color: chadenn_color,
+              fontWeight: FontWeight.bold,
+              fontSize: 18.0),
+        ),
+        centerTitle: true,
+      ),
+      body: Scanner(),
     );
   }
 }
