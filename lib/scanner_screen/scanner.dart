@@ -1,6 +1,9 @@
+import 'package:chadenn/product_details_screen/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_mobile_vision/qr_camera.dart';
-//import 'package:barcode_scan/barcode_scan.dart';
+import 'package:qr_mobile_vision/qr_mobile_vision.dart';
+
+GlobalKey<QrCameraState> qrCameraKey = GlobalKey();
 
 class Scanner extends StatefulWidget {
   @override
@@ -10,9 +13,7 @@ class Scanner extends StatefulWidget {
 }
 
 class ScannerState extends State<Scanner> {
-  String qr;
-  //bool camState = false;
-
+  bool hasScanned = false;
   @override
   initState() {
     super.initState();
@@ -20,15 +21,21 @@ class ScannerState extends State<Scanner> {
 
   _buildQrCamera() {
     return QrCamera(
+      key: qrCameraKey,
+      formats: [BarcodeFormats.UPC_A],
       onError: (context, error) => Text(
             error.toString(),
             style: TextStyle(color: Colors.red),
           ),
       qrCodeCallback: (code) {
-        //setState(() {
-        qr = code;
-        print(qr);
-        //});
+        if (hasScanned) return print('false');
+        hasScanned = true;
+        var route = MaterialPageRoute(
+          builder: (BuildContext context) => ProductDetails(
+                productCode: code,
+              ),
+        );
+        Navigator.of(context).push(route);
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -53,6 +60,7 @@ class ScannerState extends State<Scanner> {
           ),
         ],
       ),
+      notStartedBuilder: (context) => CircularProgressIndicator(),
     );
   }
 

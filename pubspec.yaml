@@ -22,6 +22,7 @@ dependencies:
   page_view_indicators: ^1.1.0
   # barcode_scan: ^0.0.8
   qr_mobile_vision: ^0.1.0
+  http: ^0.12.0
 
 dev_dependencies:
   flutter_test:
