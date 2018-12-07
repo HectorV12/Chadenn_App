@@ -4,6 +4,7 @@ import 'package:qr_mobile_vision/qr_camera.dart';
 import 'package:qr_mobile_vision/qr_mobile_vision.dart';
 
 GlobalKey<QrCameraState> qrCameraKey = GlobalKey();
+bool hasScanned = false;
 
 class Scanner extends StatefulWidget {
   @override
@@ -13,7 +14,6 @@ class Scanner extends StatefulWidget {
 }
 
 class ScannerState extends State<Scanner> {
-  bool hasScanned = false;
   @override
   initState() {
     super.initState();

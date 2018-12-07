@@ -14,6 +14,7 @@ class ProductDetails extends StatelessWidget {
         leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
+              hasScanned = false;
               qrCameraKey.currentState.restart();
               Navigator.pop(context);
             }),
