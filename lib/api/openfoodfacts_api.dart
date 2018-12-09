@@ -16,25 +16,23 @@ Future<Product> fetchProduct(String productCode) async {
 }
 
 class Product {
-  final String statusVerbose;
   final String code;
-  final String brand;
   final String productName;
+  final String brand;
   final String imageUrl;
 
-  Product(
-      {this.statusVerbose,
-      this.code,
-      this.brand,
-      this.productName,
-      this.imageUrl});
+  Product({
+    this.code,
+    this.productName,
+    this.brand,
+    this.imageUrl,
+  });
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-        statusVerbose: json['status_verbose'],
         code: json['code'],
-        brand: json['product']['brands'],
         productName: json['product']['product_name'],
+        brand: json['product']['brands'],
         imageUrl: json['product']['image_url']);
   }
 }

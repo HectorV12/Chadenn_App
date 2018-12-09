@@ -11,6 +11,7 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
         leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -33,18 +34,23 @@ class ProductDetails extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       snapshot.data.imageUrl == null
-                          ? Text('Product Image Not Found\n')
+                          ? Text('Image Not Found\n')
                           : Image.network(snapshot.data.imageUrl),
-                      Text('Product Status: ' + snapshot.data.statusVerbose),
-                      Text('Prodcut Barcode#: ' + snapshot.data.code),
-                      Text('Prodcut Brand: ' + snapshot.data.brand),
-                      Text('Prodcut Name: ' + snapshot.data.productName),
+                      snapshot.data.code == null
+                          ? Text('Product Code Not Found\n')
+                          : Text('Prodcut Barcode#: ' + snapshot.data.code),
+                      snapshot.data.brand == null
+                          ? Text('Product Brand Not Found\n')
+                          : Text('Prodcut Brand: ' + snapshot.data.brand),
+                      snapshot.data.productName == null
+                          ? Text('Product Name Not Found\n')
+                          : Text('Prodcut Name: ' + snapshot.data.productName),
                     ],
                   );
                 } else if (snapshot.hasError) {
-                  return Text("${snapshot.error}");
+                  print(snapshot.error);
+                  return Center(child: Text('PRODUCT NOT FOUND'));
                 }
-
                 // By default, show a loading spinner
                 return CircularProgressIndicator();
             }
