@@ -49,7 +49,11 @@ class ProductDetails extends StatelessWidget {
                   );
                 } else if (snapshot.hasError) {
                   print(snapshot.error);
-                  return Center(child: Text('PRODUCT NOT FOUND'));
+                  return Center(
+                      child: Text(
+                    'PRODUCT NOT FOUND\n\n OR\n\n TRY AGAIN',
+                    textAlign: TextAlign.center,
+                  ));
                 }
                 // By default, show a loading spinner
                 return CircularProgressIndicator();
