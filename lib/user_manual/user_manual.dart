@@ -40,7 +40,7 @@ class UserManualState extends State<UserManual> {
       return Positioned(
         left: 0.0,
         right: 0.0,
-        bottom: 0.0,
+        bottom: 40.0,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: CirclePageIndicator(
@@ -71,28 +71,43 @@ class UserManualState extends State<UserManual> {
       return BottomAppBar(
         //elevation: 0.0,
         shape: CircularNotchedRectangle(),
-        notchMargin: 6.0,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: chadenn_color,
+        notchMargin: 10.0,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 12.0, left: 20.0, right: 20.0),
+          child: Row(
+            //mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(
+                      Icons.menu,
+                      color: chadenn_color,
+                    ),
+                    onPressed: () {},
+                  ),
+                  Text('History'),
+                ],
               ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: chadenn_color,
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(
+                      Icons.settings,
+                      color: chadenn_color,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/SettingsScreen');
+                    },
+                  ),
+                  Text('Settings'),
+                ],
               ),
-              onPressed: () {
-                Navigator.of(context).pushNamed('/SettingsScreen');
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
@@ -105,7 +120,7 @@ class UserManualState extends State<UserManual> {
         child: new RawMaterialButton(
           fillColor: chadenn_color,
           shape: new CircleBorder(),
-          elevation: 15.0,
+          elevation: 10.0,
           //highlightElevation: 25.0,
           child: new Icon(
             CupertinoIcons.fullscreen,
