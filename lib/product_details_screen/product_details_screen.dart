@@ -35,6 +35,10 @@ class ProductDetails extends StatelessWidget {
                 return new Center(child: new CircularProgressIndicator());
               default:
                 if (snapshot.hasData) {
+                  /*
+                  * Start of the details of the product
+                  * TODO: Organize Code
+                  * */
                   return ListView(
                     children: <Widget>[
                       AppBar(
@@ -70,7 +74,7 @@ class ProductDetails extends StatelessWidget {
                                                 style: TextStyle(
                                                   fontSize: 20.0,
                                                   fontWeight: FontWeight.bold,
-                                                  color: Colors.black,
+                                                  color: Color(0xFF284563),
                                                 ),
                                                 textAlign: TextAlign.left,
                                               ),
@@ -81,12 +85,22 @@ class ProductDetails extends StatelessWidget {
                                                 style: TextStyle(
                                                   fontSize: 20.0,
                                                   fontWeight: FontWeight.bold,
-                                                  color: Colors.black,
+                                                  color: Color(0xFF284563),
                                                 ),
                                                 textAlign: TextAlign.left,
                                               ),
-                                        Text('Best Before:'),
-                                        Text('(Date)'),
+                                        Text(
+                                          'Best Before:',
+                                          style: TextStyle(
+                                            color: Color(0xFF284563),
+                                          ),
+                                        ),
+                                        Text(
+                                          '(Date)',
+                                          style: TextStyle(
+                                            color: Color(0xFF91A6BB),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -123,15 +137,210 @@ class ProductDetails extends StatelessWidget {
                       ),
                       Card(
                         margin: EdgeInsets.all(16.0),
-                        child: Center(
-                          heightFactor: 5.0,
-                          child: snapshot.data.code == null
-                              ? Text('Product Code Not Found\n')
-                              : Text('Prodcut Barcode#: ' + snapshot.data.code),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Flexible(
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 32.0,
+                                  top: 32.0,
+                                  bottom: 32.0,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 24.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 24.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(32.0),
+                              child: CircleAvatar(
+                                backgroundColor: Color(0xFFE1E8EF),
+                                child: Text(
+                                  '1',
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Card(
+                        margin: EdgeInsets.all(16.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Flexible(
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 32.0,
+                                  top: 32.0,
+                                  bottom: 32.0,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 24.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 24.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(32.0),
+                              child: CircleAvatar(
+                                backgroundColor: Color(0xFFE1E8EF),
+                                child: Text(
+                                  '2',
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Card(
+                        margin: EdgeInsets.all(16.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Flexible(
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 32.0,
+                                  top: 32.0,
+                                  bottom: 32.0,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 24.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 24.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                      width: 120.0,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5.0),
+                                      color: Colors.grey,
+                                      height: 24.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(32.0),
+                              child: CircleAvatar(
+                                backgroundColor: Color(0xFFE1E8EF),
+                                child: Text(
+                                  '3',
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   );
+                  /*
+                  * END of the details of the product
+                  * */
                 } else if (snapshot.hasError) {
                   print(snapshot.error);
                   return Center(

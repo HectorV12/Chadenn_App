@@ -1,3 +1,4 @@
+import 'package:chadenn/scanner_screen/flash_button/flash_button.dart';
 import 'package:chadenn/scanner_screen/scanner.dart';
 import 'package:chadenn/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -11,26 +12,7 @@ class ScannerScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Container(
-              width: MediaQuery.of(context).size.width / 3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  FloatingActionButton(
-                    heroTag: 'Flash',
-                    onPressed: () {},
-                    child: Icon(Icons.flash_off),
-                    backgroundColor: chadenn_color,
-                  ),
-                  Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
-                  Text(
-                    'Flash Off',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 12.0),
-                  ),
-                ],
-              ),
-            ),
+            FlashButton(),
             Container(
               width: MediaQuery.of(context).size.width / 3,
               child: Column(
