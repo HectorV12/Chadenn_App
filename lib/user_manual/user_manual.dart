@@ -86,7 +86,9 @@ class UserManualState extends State<UserManual> {
                       Icons.menu,
                       color: chadenn_color,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/HistoryScreen');
+                    },
                   ),
                   Text('History'),
                 ],

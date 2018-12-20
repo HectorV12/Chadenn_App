@@ -1,6 +1,8 @@
+import 'package:chadenn/scanner_screen/scanner.dart';
 import 'package:chadenn/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:lamp/lamp.dart';
+import 'package:flutter/services.dart';
+import 'package:torch/torch.dart';
 
 class FlashButton extends StatefulWidget {
   @override
@@ -10,19 +12,45 @@ class FlashButton extends StatefulWidget {
 class _FlashButtonState extends State<FlashButton> {
   bool _hasFlash = false;
   bool _isOn = false;
-  double _intensity = 1.0;
-
   @override
   initState() {
-    super.initState();
     initPlatformState();
+    super.initState();
   }
 
-  initPlatformState() async {
-    bool hasFlash = await Lamp.hasLamp;
-    print("Device has flash ? $hasFlash");
+  @override
+  void dispose() {
+    // make sure release any resources held by the torch
+    Torch.flashDispose;
+    super.dispose();
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initPlatformState() async {
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    bool hasFlash = false;
+    try {
+      hasFlash = await Torch.hasFlash;
+    } on PlatformException {
+      print('Failed to see if has flash.');
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
     setState(() {
       _hasFlash = hasFlash;
+    });
+  }
+
+  Future _turnFlash() async {
+//    hasScanned = false;
+//    qrCameraKey.currentState.restart();
+    _isOn ? await Torch.flashOff : await Torch.flashOn;
+    setState(() {
+      _isOn = !_isOn;
     });
   }
 
@@ -35,7 +63,8 @@ class _FlashButtonState extends State<FlashButton> {
         children: <Widget>[
           FloatingActionButton(
             heroTag: 'Flash',
-            onPressed: _turnFlash,
+            //TODO: Fix Flashlight
+            onPressed: () {},
             child: Icon(_isOn ? Icons.flash_off : Icons.flash_on),
             backgroundColor: chadenn_color,
           ),
@@ -48,14 +77,5 @@ class _FlashButtonState extends State<FlashButton> {
         ],
       ),
     );
-  }
-
-  Future _turnFlash() async {
-    _isOn ? Lamp.turnOff() : Lamp.turnOn(intensity: _intensity);
-    var f = await Lamp.hasLamp;
-    setState(() {
-      _hasFlash = f;
-      _isOn = !_isOn;
-    });
   }
 }

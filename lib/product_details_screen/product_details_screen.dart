@@ -150,10 +150,12 @@ class ProductDetails extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Container(
-                                      color: Colors.grey,
-                                      height: 24.0,
-                                      width: 120.0,
+                                    Text(
+                                      'HEALTH DATA',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0,
+                                      ),
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 5.0),
@@ -217,10 +219,12 @@ class ProductDetails extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Container(
-                                      color: Colors.grey,
-                                      height: 24.0,
-                                      width: 120.0,
+                                    Text(
+                                      'COMPOSITION',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0,
+                                      ),
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 5.0),

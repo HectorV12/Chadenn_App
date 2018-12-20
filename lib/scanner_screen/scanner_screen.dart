@@ -18,14 +18,16 @@ class ScannerScreen extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   FloatingActionButton(
-                    heroTag: 'Menu',
-                    onPressed: () {},
+                    heroTag: 'History',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/HistoryScreen');
+                    },
                     child: Icon(Icons.menu),
                     backgroundColor: chadenn_color,
                   ),
                   Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
                   Text(
-                    'Scanned Foods',
+                    'History',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 12.0),
                   ),

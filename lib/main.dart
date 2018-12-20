@@ -1,3 +1,4 @@
+import 'package:chadenn/history_screen/history_screen.dart';
 import 'package:chadenn/loading_screen/loading_screen.dart';
 import 'package:chadenn/scanner_screen/scanner_screen.dart';
 import 'package:chadenn/settings_screen/settings_screen.dart';
@@ -35,6 +36,7 @@ class ChadennApp extends StatelessWidget {
         '/UserManual': (BuildContext context) => UserManual(),
         '/ScannerScreen': (BuildContext context) => ScannerScreen(),
         '/SettingsScreen': (BuildContext context) => SettingsScreen(),
+        '/HistoryScreen': (BuildContext context) => HistoryScreen(),
       },
     );
   }

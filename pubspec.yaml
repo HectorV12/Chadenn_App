@@ -22,7 +22,10 @@ dependencies:
   page_view_indicators: ^1.1.0
   qr_mobile_vision: ^0.1.0
   http: ^0.12.0
-  lamp: ^0.0.6
+  shared_preferences: ^0.4.3
+  torch:
+    path: lib/utils/torch
+
 
 dev_dependencies:
   flutter_test:
@@ -34,8 +37,6 @@ flutter_icons:
   image_path: "assets/chadenn_icon.png"
   android: true
   ios: true
-
-
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
