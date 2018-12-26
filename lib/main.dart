@@ -2,7 +2,7 @@ import 'package:chadenn/history_screen/history_screen.dart';
 import 'package:chadenn/loading_screen/loading_screen.dart';
 import 'package:chadenn/scanner_screen/scanner_screen.dart';
 import 'package:chadenn/settings_screen/settings_screen.dart';
-import 'package:chadenn/user_manual/user_manual.dart';
+import 'package:chadenn/home_screen.dart';
 import 'package:chadenn/utils/constants.dart';
 
 import 'package:flutter/cupertino.dart';

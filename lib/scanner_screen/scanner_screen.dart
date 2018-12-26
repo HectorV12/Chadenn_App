@@ -1,4 +1,5 @@
 import 'package:chadenn/scanner_screen/flash_button/flash_button.dart';
+import 'package:chadenn/scanner_screen/manual_search_dialog/manual_search_dialog.dart';
 import 'package:chadenn/scanner_screen/scanner.dart';
 import 'package:chadenn/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,13 @@ class ScannerScreen extends StatelessWidget {
                 children: <Widget>[
                   FloatingActionButton(
                     heroTag: 'Search',
-                    onPressed: () {},
+                    onPressed: () {
+                      qrCameraKey.currentState.stop();
+                      showDialog(
+                        context: context,
+                        builder: (_) => ManualSearchDialog(),
+                      );
+                    },
                     child: Icon(Icons.search),
                     backgroundColor: chadenn_color,
                   ),
@@ -62,6 +69,7 @@ class ScannerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         bottom: _buildBelowAppBar(context),
         title: Text(

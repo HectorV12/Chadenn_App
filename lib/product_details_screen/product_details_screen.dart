@@ -116,7 +116,7 @@ class ProductDetails extends StatelessWidget {
                                   ),
                                 ),
                               ),
-//                              //This is for looks and show nothing
+//                              //Placeholder for any smart labels
 //                              Padding(
 //                                padding: const EdgeInsets.only(bottom: 5.0),
 //                                child: Row(
@@ -193,7 +193,10 @@ class ProductDetails extends StatelessWidget {
                                         snapshot.data.origins == null
                                             ? 'Data Not Found'
                                             : snapshot.data.origins,
-                                        style: TextStyle(fontSize: 16.0),
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Color(0xFF7393b4),
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -214,7 +217,10 @@ class ProductDetails extends StatelessWidget {
                                         snapshot.data.origins == null
                                             ? 'Data Not Found'
                                             : snapshot.data.manufacturingPlaces,
-                                        style: TextStyle(fontSize: 16.0),
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Color(0xFF7393b4),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -274,7 +280,7 @@ class ProductDetails extends StatelessWidget {
                                       margin: EdgeInsets.only(top: 20.0),
                                       height: 40.0,
                                       child: Text(
-                                        'Nutrition Grade:',
+                                        'Nutrition Grade:   ',
                                         style: TextStyle(
                                             color: Color(0xFF122B47),
                                             fontSize: 16.0),
@@ -283,39 +289,34 @@ class ProductDetails extends StatelessWidget {
                                     Container(
                                       //margin: EdgeInsets.only(top: 5.0),
                                       //height: 40.0,
-                                      child: snapshot
-                                                  .data.nutritionGrade ==
-                                              null
-                                          ? Text(
-                                              'Data Not Found',
-                                              style: TextStyle(fontSize: 16.0),
-                                            )
-                                          : snapshot
-                                                      .data.nutritionGrade ==
-                                                  'a'
+                                      child: snapshot.data.nutritionGrade == 'a'
+                                          ? Image.network(
+                                              'https://static.openfoodfacts.org/images/misc/nutriscore-a.png')
+                                          : snapshot.data.nutritionGrade == 'b'
                                               ? Image.network(
-                                                  'https://static.openfoodfacts.org/images/misc/nutriscore-a.png')
-                                              : snapshot
-                                                          .data.nutritionGrade ==
-                                                      'b'
+                                                  'https://static.openfoodfacts.org/images/misc/nutriscore-b.png')
+                                              : snapshot.data.nutritionGrade ==
+                                                      'c'
                                                   ? Image.network(
-                                                      'https://static.openfoodfacts.org/images/misc/nutriscore-b.png')
+                                                      'https://static.openfoodfacts.org/images/misc/nutriscore-c.png')
                                                   : snapshot.data
                                                               .nutritionGrade ==
-                                                          'c'
+                                                          'd'
                                                       ? Image.network(
-                                                          'https://static.openfoodfacts.org/images/misc/nutriscore-c.png')
+                                                          'https://static.openfoodfacts.org/images/misc/nutriscore-d.png')
                                                       : snapshot.data
                                                                   .nutritionGrade ==
-                                                              'd'
+                                                              'e'
                                                           ? Image.network(
-                                                              'https://static.openfoodfacts.org/images/misc/nutriscore-d.png')
-                                                          : snapshot.data
-                                                                      .nutritionGrade ==
-                                                                  'e'
-                                                              ? Image.network(
-                                                                  'https://static.openfoodfacts.org/images/misc/nutriscore-e.png')
-                                                              : Container(),
+                                                              'https://static.openfoodfacts.org/images/misc/nutriscore-e.png')
+                                                          : Text(
+                                                              'Data Not Found',
+                                                              style: TextStyle(
+                                                                fontSize: 16.0,
+                                                                color: Color(
+                                                                    0xFF7393b4),
+                                                              ),
+                                                            ),
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 24.0),
@@ -333,30 +334,52 @@ class ProductDetails extends StatelessWidget {
                                       margin: EdgeInsets.only(top: 5.0),
                                       height: 24.0,
                                       child: Text(
-                                        snapshot.data.nutriments == null
-                                            ? ''
+                                        snapshot.data.nutriments[
+                                                        'carbohydrates'] ==
+                                                    null &&
+                                                snapshot.data.nutriments[
+                                                        'carbohydrates_unit'] ==
+                                                    null
+                                            ? 'Carbs: 0g'
                                             : 'Carbs: ${snapshot.data.nutriments['carbohydrates']}${snapshot.data.nutriments['carbohydrates_unit']}',
-                                        style: TextStyle(fontSize: 16.0),
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Color(0xFF7393b4),
+                                        ),
                                       ),
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 5.0),
                                       height: 24.0,
                                       child: Text(
-                                        snapshot.data.nutriments == null
-                                            ? ''
+                                        snapshot.data.nutriments['fat'] ==
+                                                    null &&
+                                                snapshot.data.nutriments[
+                                                        'fat_unit'] ==
+                                                    null
+                                            ? 'Fat: 0g'
                                             : 'Fat: ${snapshot.data.nutriments['fat']}${snapshot.data.nutriments['fat_unit']}',
-                                        style: TextStyle(fontSize: 16.0),
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Color(0xFF7393b4),
+                                        ),
                                       ),
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 5.0),
                                       height: 24.0,
                                       child: Text(
-                                        snapshot.data.nutriments == null
-                                            ? ''
+                                        snapshot.data.nutriments['proteins'] ==
+                                                    null &&
+                                                snapshot.data.nutriments[
+                                                        'proteins_unit'] ==
+                                                    null
+                                            ? 'Protein: 0g'
                                             : 'Protein: ${snapshot.data.nutriments['proteins']}${snapshot.data.nutriments['proteins_unit']}',
-                                        style: TextStyle(fontSize: 16.0),
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Color(0xFF7393b4),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -430,12 +453,14 @@ class ProductDetails extends StatelessWidget {
                                               'Data Not Found',
                                               style: TextStyle(
                                                 fontSize: 16.0,
+                                                color: Color(0xFF7393b4),
                                               ),
                                             )
                                           : Text(
                                               snapshot.data.ingredients,
                                               style: TextStyle(
                                                 fontSize: 16.0,
+                                                color: Color(0xFF7393b4),
                                               ),
                                             ),
                                     ),
@@ -472,12 +497,20 @@ class ProductDetails extends StatelessWidget {
                       child: Text(
                     'PRODUCT NOT FOUND\n\n OR\n\n TRY AGAIN',
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
                   ));
                 } else if (snapshot.hasError && _scannedTwice) {
                   return Center(
                       child: Text(
-                    'SORRY PRODUCT NOT FOUND',
+                    'SORRY PRODUCT\nNOT FOUND',
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
                   ));
                 } else
                   // By default, show a loading spinner

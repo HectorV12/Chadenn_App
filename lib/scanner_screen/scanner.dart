@@ -28,7 +28,7 @@ class ScannerState extends State<Scanner> {
             style: TextStyle(color: Colors.red),
           ),
       qrCodeCallback: (code) {
-        if (hasScanned) return print('false');
+        if (hasScanned) return;
         hasScanned = true;
         var route = MaterialPageRoute(
           builder: (BuildContext context) => ProductDetails(
