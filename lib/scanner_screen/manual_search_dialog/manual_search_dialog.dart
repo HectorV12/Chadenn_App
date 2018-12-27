@@ -15,6 +15,7 @@ class ManualSearchDialogState extends State<ManualSearchDialog> {
 
   bool _validate = false;
 
+  //Navigates to Product Details Screen
   _navigate() async {
     var route = MaterialPageRoute(
       builder: (BuildContext context) => ProductDetails(
@@ -51,6 +52,7 @@ class ManualSearchDialogState extends State<ManualSearchDialog> {
                 errorText: _validate ? 'Please Enter A Valid Barcode' : null,
               ),
               controller: _code,
+              textInputAction: TextInputAction.none,
             ),
           ),
           Padding(
