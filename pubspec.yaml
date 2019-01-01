@@ -23,6 +23,7 @@ dependencies:
   qr_mobile_vision: ^0.1.0
   http: ^0.12.0
   shared_preferences: ^0.4.3
+  scoped_model: ^1.0.1
   torch:
     path: lib/utils/torch
 

@@ -1,3 +1,4 @@
+import 'package:chadenn/history_screen/history_screen.dart';
 import 'package:chadenn/product_details_screen/product_details_screen.dart';
 import 'package:chadenn/scanner_screen/scanner.dart';
 import 'package:chadenn/utils/constants.dart';

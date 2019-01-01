@@ -1,3 +1,4 @@
+import 'package:chadenn/scanner_screen/scanner.dart';
 import 'package:chadenn/user_manual/user_manual_pages/user_manual_page1.dart';
 import 'package:chadenn/user_manual/user_manual_pages/user_manual_page2.dart';
 import 'package:chadenn/user_manual/user_manual_pages/user_manual_page3.dart';
@@ -5,6 +6,8 @@ import 'package:chadenn/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_view_indicators/page_view_indicators.dart';
+
+bool notScanned = false;
 
 class UserManual extends StatefulWidget {
   @override
@@ -87,6 +90,7 @@ class UserManualState extends State<UserManual> {
                       color: chadenn_color,
                     ),
                     onPressed: () {
+                      notScanned = true;
                       Navigator.of(context).pushNamed('/HistoryScreen');
                     },
                   ),

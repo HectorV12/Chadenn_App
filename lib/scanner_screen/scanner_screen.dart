@@ -1,3 +1,4 @@
+import 'package:chadenn/home_screen.dart';
 import 'package:chadenn/scanner_screen/flash_button/flash_button.dart';
 import 'package:chadenn/scanner_screen/manual_search_dialog/manual_search_dialog.dart';
 import 'package:chadenn/scanner_screen/scanner.dart';
@@ -21,6 +22,7 @@ class ScannerScreen extends StatelessWidget {
                   FloatingActionButton(
                     heroTag: 'History',
                     onPressed: () {
+                      notScanned = false;
                       Navigator.of(context).pushNamed('/HistoryScreen');
                     },
                     child: Icon(Icons.menu),
