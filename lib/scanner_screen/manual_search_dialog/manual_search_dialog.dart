@@ -24,6 +24,7 @@ class ManualSearchDialogState extends State<ManualSearchDialog> {
           ),
     );
     return await Navigator.of(context).push(route).then((_) {
+      fromHistory = false;
       Navigator.pop(context);
       _code.clear();
     });

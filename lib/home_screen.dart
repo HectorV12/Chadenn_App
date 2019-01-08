@@ -119,6 +119,7 @@ class UserManualState extends State<UserManual> {
     }
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         width: 80.0,

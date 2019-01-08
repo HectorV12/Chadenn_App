@@ -1,3 +1,4 @@
+import 'package:chadenn/settings_screen/about_page/about_page.dart';
 import 'package:chadenn/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSettingsBody() {
+  Widget _buildSettingsBody(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
@@ -27,53 +28,21 @@ class SettingsScreen extends StatelessWidget {
           SizedBox(
             height: 52.0,
           ),
-          Text(
-            'Accounts',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20.0,
-            ),
-            textAlign: TextAlign.left,
-          ),
           ListTile(
             title: Text(
-              'Edit Profile',
-              style: TextStyle(color: Colors.black),
+              'About',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18.0,
+              ),
             ),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text(
-              'Change Profile',
-              style: TextStyle(color: Colors.black),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: () {},
-          ),
-          Text(
-            'Settings',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20.0,
-            ),
-            textAlign: TextAlign.left,
-          ),
-          ListTile(
-            title: Text(
-              'Edit Profile',
-              style: TextStyle(color: Colors.black),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text(
-              'Change Profile',
-              style: TextStyle(color: Colors.black),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: () {},
+            onTap: () {
+              var _route = MaterialPageRoute(
+                builder: (BuildContext context) => AboutPage(),
+              );
+              Navigator.of(context).push(_route);
+            },
           ),
         ],
       ),
@@ -88,7 +57,7 @@ class SettingsScreen extends StatelessWidget {
         bottom: _buildBelowAppBar(),
       ),
       backgroundColor: Colors.white,
-      body: _buildSettingsBody(),
+      body: _buildSettingsBody(context),
     );
   }
 }

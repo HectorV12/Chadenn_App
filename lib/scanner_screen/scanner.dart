@@ -39,6 +39,7 @@ class ScannerState extends State<Scanner> {
                   productCode: code,
                 ),
           );
+          fromHistory = false;
           Navigator.of(context).push(_route);
         },
         child: Column(

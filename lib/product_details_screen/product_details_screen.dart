@@ -1,4 +1,5 @@
 import 'package:chadenn/api/openfoodfacts_api.dart';
+import 'package:chadenn/history_screen/history_screen.dart';
 import 'package:chadenn/model/code_model.dart';
 import 'package:flutter/material.dart';
 import 'package:chadenn/scanner_screen/scanner.dart';
@@ -11,14 +12,17 @@ class ProductDetails extends StatelessWidget {
 
   ProductDetails({Key key, @required this.productCode}) : super(key: key);
 
-  //TODO: Fix Bug from history screen to product details screen and smoothness
+  void _navigate(BuildContext context) {
+    hasScanned = false;
+    qrCameraKey.currentState.restart();
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        hasScanned = false;
-        qrCameraKey.currentState.restart();
-        Navigator.pop(context);
+        fromHistory ? Navigator.pop(context) : _navigate(context);
       },
       child: Scaffold(
         appBar: AppBar(
@@ -26,9 +30,7 @@ class ProductDetails extends StatelessWidget {
           leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
-                hasScanned = false;
-                qrCameraKey.currentState.restart();
-                Navigator.pop(context);
+                fromHistory ? Navigator.pop(context) : _navigate(context);
               }),
         ),
         body: FutureBuilder<Product>(

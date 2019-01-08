@@ -1,5 +1,4 @@
 import 'package:chadenn/home_screen.dart';
-import 'package:chadenn/scanner_screen/flash_button/flash_button.dart';
 import 'package:chadenn/scanner_screen/manual_search_dialog/manual_search_dialog.dart';
 import 'package:chadenn/scanner_screen/scanner.dart';
 import 'package:chadenn/utils/constants.dart';
@@ -14,9 +13,9 @@ class ScannerScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            FlashButton(),
+            //FlashButton(),
             Container(
-              width: MediaQuery.of(context).size.width / 3,
+              width: MediaQuery.of(context).size.width / 2,
               child: Column(
                 children: <Widget>[
                   FloatingActionButton(
@@ -38,7 +37,7 @@ class ScannerScreen extends StatelessWidget {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width / 3,
+              width: MediaQuery.of(context).size.width / 2,
               child: Column(
                 children: <Widget>[
                   FloatingActionButton(

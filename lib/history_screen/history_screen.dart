@@ -6,6 +6,8 @@ import 'package:chadenn/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+bool fromHistory = false;
+
 class HistoryScreen extends StatelessWidget {
   AppBar _buildBelowAppBar() {
     return AppBar(
@@ -72,6 +74,7 @@ class HistoryScreen extends StatelessWidget {
                                       productCode: _barCodes,
                                     ),
                               );
+                              fromHistory = true;
                               await Navigator.of(context).push(_route);
                             },
                           ));
