@@ -62,7 +62,7 @@ class HistoryScreenState extends State<HistoryScreen> {
         ),
         body: ScopedModelDescendant<CodeModel>(
           builder: (context, child, model) {
-            return model.listTwo.isEmpty
+            return model.listTwo.isEmpty || model.listTwo == null
                 ? Center(
                     child: Text(
                     'Empty',
