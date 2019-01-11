@@ -8,7 +8,20 @@ import 'package:scoped_model/scoped_model.dart';
 
 bool fromHistory = false;
 
-class HistoryScreen extends StatelessWidget {
+class HistoryScreen extends StatefulWidget {
+  @override
+  HistoryScreenState createState() {
+    return new HistoryScreenState();
+  }
+}
+
+class HistoryScreenState extends State<HistoryScreen> {
+  @override
+  void initState() {
+    ScopedModel.of<CodeModel>(context).getHistoryList();
+    super.initState();
+  }
+
   AppBar _buildBelowAppBar() {
     return AppBar(
       centerTitle: true,
@@ -56,22 +69,19 @@ class HistoryScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 20.0),
                   ))
                 : ListView.builder(
-                    itemCount: model.listTwo.toSet().length,
+                    itemCount: model.listTwo.length,
                     itemBuilder: (context, index) {
-                      var _barCodes =
-                          model.listTwo.reversed.toSet().toList()[index];
-                      var _productNames =
-                          model.listGetNames.reversed.toSet().toList()[index];
                       return Card(
                           elevation: 5.0,
                           margin: EdgeInsets.all(10.0),
                           child: ListTile(
-                            title: Text('Product Name : $_productNames'),
+                            title: Text(
+                                'Product Name : ${model.listGetNames[index]}'),
                             onTap: () async {
                               var _route = MaterialPageRoute(
                                 builder: (BuildContext context) =>
                                     ProductDetails(
-                                      productCode: _barCodes,
+                                      productCode: model.listTwo[index],
                                     ),
                               );
                               fromHistory = true;

@@ -30,6 +30,8 @@ class ManualSearchDialogState extends State<ManualSearchDialog> {
     });
   }
 
+  //TODO: Error pops on console: 'Failed assertion: boolean expression must not be null'
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(

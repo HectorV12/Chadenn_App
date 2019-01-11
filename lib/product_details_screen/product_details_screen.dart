@@ -363,7 +363,7 @@ class ProductDetails extends StatelessWidget {
                                                           'carbohydrates_unit'] ==
                                                       null
                                               ? 'Carbs: 0g'
-                                              : 'Carbs: ${snapshot.data.nutriments['carbohydrates']}${snapshot.data.nutriments['carbohydrates_unit']}',
+                                              : 'Carbs: ${snapshot.data.nutriments['carbohydrates']}g',
                                           style: TextStyle(
                                             fontSize: 16.0,
                                             color: Color(0xFF7393b4),
@@ -380,7 +380,7 @@ class ProductDetails extends StatelessWidget {
                                                           'fat_unit'] ==
                                                       null
                                               ? 'Fat: 0g'
-                                              : 'Fat: ${snapshot.data.nutriments['fat']}${snapshot.data.nutriments['fat_unit']}',
+                                              : 'Fat: ${snapshot.data.nutriments['fat']}g',
                                           style: TextStyle(
                                             fontSize: 16.0,
                                             color: Color(0xFF7393b4),
@@ -398,7 +398,7 @@ class ProductDetails extends StatelessWidget {
                                                           'proteins_unit'] ==
                                                       null
                                               ? 'Protein: 0g'
-                                              : 'Protein: ${snapshot.data.nutriments['proteins']}${snapshot.data.nutriments['proteins_unit']}',
+                                              : 'Protein: ${snapshot.data.nutriments['proteins']}g',
                                           style: TextStyle(
                                             fontSize: 16.0,
                                             color: Color(0xFF7393b4),
